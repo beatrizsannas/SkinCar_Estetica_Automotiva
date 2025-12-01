@@ -55,13 +55,13 @@ export const BENEFITS = [
     icon: Shield
   },
   {
-    title: 'Mais Vendas',
+    title: 'Mais Vendas para Lojistas',
     description: 'Um visual impactante que atrai clientes de alto padrão.',
     icon: Zap
   },
   {
     title: 'Autoridade no Mercado',
-    description: 'Posicione sua marca como referência em estética automotiva.',
+    description: 'Domínio técnico absoluto e processos refinados que garantem um acabamento superior em cada detalhe.',
     icon: Award
   },
   {
