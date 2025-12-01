@@ -60,7 +60,7 @@ export const Button: React.FC<ButtonProps> = ({
         target={target}
         rel={relAttribute}
         onClick={handleClick}
-        style={{ WebkitTapHighlightColor: 'transparent' }}
+        style={{ WebkitTapHighlightColor: 'transparent' } as React.CSSProperties}
       >
         <span className="relative z-50 flex items-center justify-center gap-2 pointer-events-none">
           {children}
@@ -75,7 +75,7 @@ export const Button: React.FC<ButtonProps> = ({
       className={combinedClasses}
       type="button"
       {...props}
-      style={{ WebkitTapHighlightColor: 'transparent' }}
+      style={{ WebkitTapHighlightColor: 'transparent' } as React.CSSProperties}
     >
       <span className="relative z-50 flex items-center justify-center gap-2 pointer-events-none">
         {children}
