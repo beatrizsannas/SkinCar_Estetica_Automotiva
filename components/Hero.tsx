@@ -9,16 +9,15 @@ export const Hero: React.FC = () => {
       {/* Background Image with Overlay */}
       <div 
         className="absolute inset-0 bg-hero-pattern bg-cover bg-center opacity-30 mix-blend-luminosity transform scale-105 pointer-events-none z-0"
-        role="img"
-        aria-label="Background texture of a luxury car detail"
+        aria-hidden="true"
       ></div>
       {/* Enhanced gradients */}
-      <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/90 to-transparent pointer-events-none z-0"></div>
-      <div className="absolute inset-0 bg-gradient-to-r from-brand-dark via-brand-dark/50 to-brand-dark pointer-events-none z-0"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/90 to-transparent pointer-events-none z-0" aria-hidden="true"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-brand-dark via-brand-dark/50 to-brand-dark pointer-events-none z-0" aria-hidden="true"></div>
       
       {/* Animated Shapes/Glows */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-accent/20 rounded-full blur-[100px] animate-pulse pointer-events-none z-0"></div>
-      <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-blue-600/20 rounded-full blur-[80px] pointer-events-none z-0"></div>
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-accent/20 rounded-full blur-[100px] animate-pulse pointer-events-none z-0" aria-hidden="true"></div>
+      <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-blue-600/20 rounded-full blur-[80px] pointer-events-none z-0" aria-hidden="true"></div>
 
       <div className="relative z-50 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Content Wrapper - Using standard relative positioning for z-index context */}
@@ -47,9 +46,9 @@ export const Hero: React.FC = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full sm:w-auto px-4 sm:px-0">
             <div className="relative group w-full sm:w-auto">
               {/* Glow behind button */}
-              <div className="absolute -inset-1 bg-brand-accent rounded-lg blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200 animate-pulse pointer-events-none"></div>
+              <div className="absolute -inset-1 bg-brand-accent rounded-lg blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200 animate-pulse pointer-events-none" aria-hidden="true"></div>
               <Button href="#servicos" fullWidth className="sm:w-auto animate-pulse-glow shadow-[0_0_15px_rgba(0,240,255,0.3)] hover:shadow-[0_0_25px_rgba(0,240,255,0.6)]">
-                Acessar Catálogo <ChevronRight size={18} />
+                Acessar Catálogo <ChevronRight size={18} aria-hidden="true" />
               </Button>
             </div>
             <Button variant="outline" href="#sobre" fullWidth className="sm:w-auto">
@@ -65,6 +64,7 @@ export const Hero: React.FC = () => {
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 1 }}
         className="absolute bottom-6 md:bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 pointer-events-none z-10"
+        aria-hidden="true"
       >
         <span className="text-[10px] uppercase tracking-widest text-gray-500">Scroll</span>
         <div className="w-[1px] h-8 md:h-12 bg-gradient-to-b from-brand-accent to-transparent"></div>

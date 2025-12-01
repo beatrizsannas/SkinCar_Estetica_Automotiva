@@ -68,7 +68,7 @@ export const Navbar: React.FC = () => {
         <div className="flex justify-between items-center h-20">
           <div className="flex-shrink-0 flex items-center relative z-[1001]">
             {/* Logo placeholder - replacing the image request */}
-            <a href="#home" onClick={(e) => handleScrollTo(e, '#home')} className="font-display font-black text-2xl tracking-tighter text-white cursor-pointer">
+            <a href="#home" onClick={(e) => handleScrollTo(e, '#home')} className="font-display font-black text-2xl tracking-tighter text-white cursor-pointer" aria-label="SkinCar - Ir para o início">
               SKIN<span className="text-brand-accent">CAR</span>
             </a>
           </div>
@@ -93,7 +93,8 @@ export const Navbar: React.FC = () => {
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="text-gray-300 hover:text-white p-2 relative cursor-pointer"
-              aria-label="Menu"
+              aria-label={isMobileMenuOpen ? "Fechar menu" : "Abrir menu"}
+              aria-expanded={isMobileMenuOpen}
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>

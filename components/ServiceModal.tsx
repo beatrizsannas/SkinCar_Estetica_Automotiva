@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Home } from 'lucide-react';
+import { X, Home, Instagram } from 'lucide-react';
 import { Button } from './ui/Button';
 
 interface Service {
@@ -9,6 +9,7 @@ interface Service {
   description: string;
   details: string;
   price?: string;
+  videoUrl?: string;
 }
 
 interface ServiceModalProps {
@@ -50,6 +51,7 @@ export const ServiceModal: React.FC<ServiceModalProps> = ({ service, isOpen, onC
             exit={{ opacity: 0 }}
             onClick={onClose}
             className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[2000]"
+            aria-hidden="true"
           />
           {/* Main container - centered and fixed */}
           <div className="fixed inset-0 z-[2010] flex items-center justify-center p-4 pointer-events-none">
@@ -63,12 +65,15 @@ export const ServiceModal: React.FC<ServiceModalProps> = ({ service, isOpen, onC
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               className="bg-brand-gray border border-brand-accent/30 w-full max-w-lg rounded-2xl shadow-[0_0_50px_rgba(0,0,0,0.8)] pointer-events-auto flex flex-col max-h-[75vh] overflow-hidden relative"
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="modal-title"
             >
               
               {/* FIXED HEADER - Title and Controls */}
               <div className="flex-shrink-0 p-5 border-b border-white/10 flex justify-between items-start bg-brand-gray relative z-20">
                 <div className="pr-4">
-                  <h3 className="font-display text-xl md:text-2xl font-bold text-white leading-tight">{service.title}</h3>
+                  <h3 id="modal-title" className="font-display text-xl md:text-2xl font-bold text-white leading-tight">{service.title}</h3>
                   <div className="h-1 w-20 bg-brand-accent rounded-full mt-3"></div>
                 </div>
                 
@@ -84,7 +89,7 @@ export const ServiceModal: React.FC<ServiceModalProps> = ({ service, isOpen, onC
                   <button 
                     onClick={onClose}
                     className="text-gray-500 hover:text-white hover:bg-white/10 rounded-full transition-all p-2 cursor-pointer"
-                    aria-label="Fechar"
+                    aria-label="Fechar modal"
                   >
                     <X size={24} />
                   </button>
@@ -96,6 +101,19 @@ export const ServiceModal: React.FC<ServiceModalProps> = ({ service, isOpen, onC
                 <div>
                   <h4 className="text-xs md:text-sm uppercase tracking-wider text-gray-500 mb-2 font-bold">Descrição</h4>
                   <p className="text-gray-300 font-light text-sm md:text-base leading-relaxed">{service.description}</p>
+                  
+                  {/* Instagram Link in Modal */}
+                  {service.videoUrl && (
+                    <a 
+                      href={service.videoUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="mt-3 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-accent hover:text-white transition-colors"
+                    >
+                      <Instagram size={14} />
+                      Conheça mais sobre este serviço
+                    </a>
+                  )}
                 </div>
 
                 <div className="bg-white/5 p-4 rounded-lg border border-white/10">
@@ -106,7 +124,7 @@ export const ServiceModal: React.FC<ServiceModalProps> = ({ service, isOpen, onC
                   <ul className="space-y-3">
                     {detailItems.map((item, index) => (
                       <li key={index} className="flex items-start gap-3 text-gray-300 text-sm leading-relaxed">
-                        <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-brand-accent shadow-[0_0_5px_#00F0FF] flex-shrink-0" />
+                        <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-brand-accent shadow-[0_0_5px_#00F0FF] flex-shrink-0" aria-hidden="true" />
                         <span className="flex-1 whitespace-pre-line">{item}</span>
                       </li>
                     ))}
